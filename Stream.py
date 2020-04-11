@@ -1,8 +1,8 @@
 import cv2
-import numpy as np
-import os
-import subprocess
 import pyautogui
+import sys
+from os import startfile
+
 
 cap=cv2.VideoCapture(0)
 is_paused=0
@@ -11,6 +11,7 @@ face_cascade = cv2.CascadeClassifier('frontalfacehaarcascade.xml')
 
 found_face=False
 
+startfile(sys.argv[1])
 while True:
     ret,img=cap.read()
     if ret is not True:
@@ -35,3 +36,4 @@ while True:
 
 
 cap.release()
+cv2.destroyAllWindows()
